@@ -1,3 +1,36 @@
+const evaluate = (string) => {
+    // const left = string.charAt(0);
+    // const right = string.charAt(2);
+    const operator = string.charAt(1);
+    const e = () => {
+        switch(operator) {
+            case '+':
+                return (left, right) => left + right;
+                break;
+            case '-':
+                return (left, right) => left - right;
+                break;
+            case '*':
+                return (left, right) => left * right;
+                break;
+            case '/':
+                return (left, right) => left / right;;
+                break;
+        };
+    };
+    return e;
+};
+//
+const expression = '8/3';
+let operator = evaluate(expression);
+console.log(`${expression} = ${operator(expression)}`);
+console.log(evaluate('3+5'));
+
+module.exports = {evaluate};
+
+
+
+//IGNORE below comments
 //Write a function that takes as input each of the following strings in turn:
 // ‘4+2’
 // ‘5*7’
@@ -88,32 +121,3 @@
 // };
 
 // SOLUTION 3
-const evaluate = (string) => {
-    // const left = string.charAt(0);
-    // const right = string.charAt(2);
-    const operator = string.charAt(1);
-    const e = () => {
-        switch(operator) {
-            case '+':
-                return (left, right) => left + right;
-                break;
-            case '-':
-                return (left, right) => left - right;
-                break;
-            case '*':
-                return (left, right) => left * right;
-                break;
-            case '/':
-                return (left, right) => left / right;;
-                break;
-        };
-    };
-    return e;
-};
-//
-const expression = '8/3';
-let operator = evaluate(expression);
-console.log(`${expression} = ${operator(expression)}`);
-console.log(evaluate('3+5'));
-
-module.exports = {evaluate};
