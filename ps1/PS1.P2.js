@@ -1,32 +1,74 @@
+const e = (expression) => {
+    const operator = expression.charAt(1);
+    switch(operator) {
+        case '+':
+            return (expression) => Number(expression.charAt(0)) + Number(expression.charAt(2));
+            break;
+        case '-':
+            return (expression) => Number(expression.charAt(0)) - Number(expression.charAt(2));
+            break;
+        case '*':
+            return (expression) => Number(expression.charAt(0)) * Number(expression.charAt(2));
+            break;
+        case '/':
+            return (expression) => Number(expression.charAt(0)) / Number(expression.charAt(2));
+            break;
+    };
+};
 const evaluate = (string) => {
     // const left = string.charAt(0);
     // const right = string.charAt(2);
-    const operator = string.charAt(1);
-    const e = () => {
-        switch(operator) {
-            case '+':
-                return (left, right) => left + right;
-                break;
-            case '-':
-                return (left, right) => left - right;
-                break;
-            case '*':
-                return (left, right) => left * right;
-                break;
-            case '/':
-                return (left, right) => left / right;;
-                break;
-        };
-    };
-    return e;
+    // const operator = string.charAt(1);
+    return e(string);
 };
 //
-const expression = '8/3';
-let operator = evaluate(expression);
-console.log(`${expression} = ${operator(expression)}`);
-console.log(evaluate('3+5'));
-
+// const expression = '8/3';
+// let operator = evaluate(expression);
+// console.log(`${expression} = ${operator(expression)}`);
+// console.log(evaluate('8%2')('8%2'));
+// console.log(evaluate('8%2'));
 module.exports = {evaluate};
+
+
+
+
+
+
+
+//
+//case '*': return (expression) => Number(expression.charAt(0)) * Number(expression.charAt(2));
+// const evaluate = (expression) => {
+//     // const left = string.charAt(0);
+//     // const right = string.charAt(2);
+//     // const operator = string.charAt(1);
+//     const expr = expression;
+//     const e = () => {
+//         const expr = expression;
+//         switch(operator) {
+//             case '+':
+//                 return (expression) => Number(expression.charAt(0)) + Number(expression.charAt(2));
+//                 break;
+//             case '-':
+//                 return (expression) => Number(expression.charAt(0)) - Number(expression.charAt(2));
+//                 break;
+//             case '*':
+//                 return (expression) => Number(expression.charAt(0)) * Number(expression.charAt(2));
+//                 break;
+//             case '/':
+//                 return (expression) => Number(expression.charAt(0)) / Number(expression.charAt(2));
+//                 break;
+//         };
+//     };
+//     return e;
+// };
+// //
+// // const expression = '8/3';
+// // let operator = evaluate(expression);
+// // console.log(`${expression} = ${operator(expression)}`);
+// console.log(evaluate('3+5'));
+//
+// module.exports = {evaluate};
+
 
 
 

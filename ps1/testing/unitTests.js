@@ -28,11 +28,11 @@ const {evaluate} = require('../PS1.P2');
 describe('Problem 2 evaluate expression function testing', () => {
     // Set up initial conditions, if there are any
     // Set up individual unit tests
-    it("should be return a function for input of '3+5'", function () {
-        let result = evaluate('3+5');
-        expect(result).to.be.a('function');
+    it("should return 16 for evaluate('8*2')('8*2')", function () {
+        let result = evaluate('8*2')('8*2');
+        expect(result).to.be.equal(16);
     });
-    it("should be return a function for input of '6/2'", function () {
+    it("should return a function for input of '6/2'", function () {
         let result = evaluate('6/2');
         expect(result).to.be.a('function');
     });
