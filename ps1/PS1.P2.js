@@ -22,18 +22,17 @@ const evaluate = (string) => {
     return e(string);
 };
 //
-// const expression = '8/3';
-// let operator = evaluate(expression);
-// console.log(`${expression} = ${operator(expression)}`);
-// console.log(evaluate('8%2')('8%2'));
-// console.log(evaluate('8%2'));
+const expression = '8/3';
+let operator = evaluate(expression);
+console.log(`${expression} = ${operator(expression)}`);
+console.log(evaluate('8*2')('8*2'));
 module.exports = {evaluate};
 
 
 
 
 
-
+// IGNORE COMMENTS BELOW
 
 //
 //case '*': return (expression) => Number(expression.charAt(0)) * Number(expression.charAt(2));
