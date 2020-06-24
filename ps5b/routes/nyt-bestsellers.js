@@ -39,7 +39,7 @@ router.route('/ps5b')
                 res.send(response);
             } else {
                 let setData = await setAsync(title, JSON.stringify(bestsellers + ' cached '), 'EX', 30 );
-                let response = {
+                let response= {
                     setData: setData,
                     cached: false
                 }
