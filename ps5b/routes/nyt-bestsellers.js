@@ -27,7 +27,7 @@ router.route('/ps5b')
 
             const title = req.body.title;
             let result = await fetch(CONFIG.url + '?title=' + title + '&api-key=' + CONFIG.key);
-            let bestsellers = await result.json();
+            let titleData = await result.json();
 
             let match = await existsAsync(title);
             if (match) { //key exists, grab value
@@ -38,9 +38,9 @@ router.route('/ps5b')
                 }
                 res.send(response);
             } else {
-                let setData = await setAsync(title, JSON.stringify(bestsellers + ' cached '), 'EX', 30 );
+                setAsync(title, JSON.stringify(titleData), 'EX', 30 );
                 let response= {
-                    setData: setData,
+                    titleData: titleData,
                     cached: false
                 }
                 res.send(response);
