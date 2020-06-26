@@ -33,7 +33,7 @@ router.route('/ps5b')
             if (match) { //key exists, grab value
                 let titleData = await getAsync(title); //return key's value;
                 let response = {
-                    titleData: titleData,
+                    titleData: JSON.parse(titleData),
                     cached: true
                 }
                 res.send(response);
