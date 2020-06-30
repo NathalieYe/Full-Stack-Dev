@@ -16,19 +16,12 @@ const setAsync = promisify(client.set).bind(client);
 
 
 router.route('/ps5b')
-    .get(async (req, res, next) => {
-        let result = await fetch(CONFIG.url + '?title=1q84&api-key=' + CONFIG.key);
-        let bestsellers = await result.json();
-        res.send(bestsellers);
-    })
     .post(async (req, res, next) => {
 
         try {
 
             const title = req.body.title;
-            let result = await fetch(CONFIG.url + '?title=' + title + '&api-key=' + CONFIG.key);
-            let titleData = await result.json();
-
+            
             let match = await existsAsync(title);
             if (match) { //key exists, grab value
                 let titleData = await getAsync(title); //return key's value;
@@ -38,6 +31,8 @@ router.route('/ps5b')
                 }
                 res.send(response);
             } else {
+                let result = await fetch(CONFIG.url + '?title=' + title + '&api-key=' + CONFIG.key);
+                let titleData = await result.json();
                 setAsync(title, JSON.stringify(titleData), 'EX', 30 );
                 let response= {
                     titleData: titleData,
