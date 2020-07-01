@@ -1,0 +1,69 @@
+
+<app-parent></app-parent>
+
+
+
+
+<!--<h1>Welcome to {{title}}</h1>-->
+
+<!--<h2>httpClient running in a service</h2>-->
+<!--<button (click)="getBook()">Get book information</button>-->
+<!--<br/>-->
+<!--Book information: {{bookInformation}} <br/>-->
+<!--Title: {{bookInformation.title}} <br/>-->
+<!--Description: {{bookInformation.description}} <br/>-->
+<!--Publisher: {{bookInformation.publisher}} <br/>-->
+
+
+
+
+
+<!-- Way 0 and call backend? have a backend route-->
+<!--<form action="http://localhost:3000/routeHere" method="post">-->
+<!--  <label>Author: </label><input name="author"><br/>-->
+<!--  <button type="submit">Submit</button>-->
+<!--</form>-->
+
+<!-- Way 1 -->
+<!--<form (ngSubmit)="getBookByAuthor()">-->
+<!--  <label>Author: </label><input name="author" [(ngModel)]="author">-->
+<!--  <button type="submit">Submit</button>-->
+<!--</form>-->
+
+<!-- Way 2 -->
+<!--<br/>-->
+<!--<label>Author: </label><input [formControl]="authorControl">: {{author}} <br/>-->
+<!--<button (click)="getBookByAuthorWay2()">Submit</button>-->
+<!--<br/>-->
+
+<!-- Way 3
+Using formControlName to get to controllers inside the form
+Also works with FormBuilder service (same syntax in HTML) -->
+
+
+
+
+
+
+
+<!--<br/>-->
+<!--<form [formGroup]="bookFormGroup" (ngSubmit)="getBookByAuthorWay3()">-->
+<!--  <label>Author: </label><input formControlName="authorControl">: {{author}} <br/>-->
+<!--  <button type="submit">Submit</button>-->
+<!--  <br/>-->
+<!--</form>-->
+
+
+
+
+<!-- PS6 -->
+<!--<div name="haruki-murakami">-->
+<!--  <ul *ngFor="let book of haruki">-->
+<!--    <li (click)="showDescription(book.title)">{{book.title}}</li>-->
+<!--  </ul>-->
+<!--</div>-->
+
+<!--<form name="details" *ngIf="selectedBook">-->
+<!--  <label>Description: </label><br/>-->
+<!--  <input name="description" type="text" value="{{selectedBook.description}}">-->
+<!--</form>-->

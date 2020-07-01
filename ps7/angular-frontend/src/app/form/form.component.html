@@ -1,0 +1,8 @@
+<p>form works!</p>
+
+<br/>
+<form [formGroup]="bookFormGroup" (ngSubmit)="getBookByAuthorWay3()">
+  <label>Author: </label><input formControlName="authorControl">: {{author}} <br/>
+  <button type="submit">Submit</button>
+  <br/>
+</form>
