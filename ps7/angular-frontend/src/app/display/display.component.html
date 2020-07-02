@@ -1,9 +1,8 @@
 <p>display works!</p>
 
-<div *ngIf="author">
-  <ul *ngFor="let title of author">
-    <li>{{bookInformation.title}}</li>
-  </ul>
+<div *ngIf="book">
+  <p>{{book}} is {{author}}'s work</p><br/>
+  <p>cache: {{cache}}</p>
 </div>
 
 <!--<div name="haruki-murakami">-->

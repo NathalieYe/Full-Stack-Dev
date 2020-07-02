@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {HARUKIBOOK} from '../data/haruki-murakami';
-import {HARUKI} from '../data/haruki-murakamiMOCK';
+// import {HARUKIBOOK} from '../data/haruki-murakami';
+// import {HARUKI} from '../data/haruki-murakamiMOCK';
 import {FormBuilder, FormControl, Validators} from '@angular/forms';
 import {BookServiceService as BookService} from '../book-service.service';
 
@@ -11,8 +11,8 @@ import {BookServiceService as BookService} from '../book-service.service';
 })
 export class FormComponent implements OnInit {
   title = "Bestsellers on New York Times";
-  haruki: HARUKIBOOK[] = HARUKI;
-  selectedBook: HARUKIBOOK;
+  // haruki: HARUKIBOOK[] = HARUKI;
+  // selectedBook: HARUKIBOOK;
 
   bookInformation = {
     title: "null",
@@ -22,7 +22,7 @@ export class FormComponent implements OnInit {
 
   author: string;
 
-  authorControl2: FormControl = new FormControl('haruki murakami', Validators.required);
+  // authorControl2: FormControl = new FormControl('haruki murakami', Validators.required);
 
   // bookFormGroup: FormGroup = new FormGroup({
   //   authorControl: new FormControl('haruki murakami', Validators.required)
@@ -40,41 +40,6 @@ export class FormComponent implements OnInit {
 
   constructor(private bookService: BookService, private form: FormBuilder) {}
 
-  getBook() {
-    this.bookService.getBook().subscribe(
-      response => {
-        this.bookInformation = response['results'][0]['title'];
-      }
-    );
-  }
-
-  getBookByAuthor() {
-    this.bookService.getBookByAuthor(this.author).subscribe(
-      response => {
-        this.bookInformation = response['results'][0];
-        // console.log(`result looks like this ${response['results'][0]}`)
-        this.bookInformation = {
-          title: response['results'][0]['title'],
-          description: response['results'][0]['description'],
-          publisher: response['results'][0]['publisher']
-        }
-      }
-    );
-  }
-
-  getBookByAuthorWay2() {
-    this.bookService.getBookByAuthor(this.authorControl2.value).subscribe(
-      response => {
-        this.bookInformation = response['results'][0];
-        // console.log(`result looks like this ${response['results'][0]}`)
-        this.bookInformation = {
-          title: response['results'][0]['title'],
-          description: response['results'][0]['description'],
-          publisher: response['results'][0]['publisher']
-        }
-      }
-    );
-  }
 
   getBookByAuthorWay3() {
     this.bookService.getBookByFormGroup(this.bookFormGroup).subscribe(
@@ -92,5 +57,43 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  // getBook() {
+  //   this.bookService.getBook().subscribe(
+  //     response => {
+  //       this.bookInformation = response['results'][0]['title'];
+  //     }
+  //   );
+  // }
+  //
+  // getBookByAuthor() {
+  //   this.bookService.getBookByAuthor(this.author).subscribe(
+  //     response => {
+  //       this.bookInformation = response['results'][0];
+  //       // console.log(`result looks like this ${response['results'][0]}`)
+  //       this.bookInformation = {
+  //         title: response['results'][0]['title'],
+  //         description: response['results'][0]['description'],
+  //         publisher: response['results'][0]['publisher']
+  //       }
+  //     }
+  //   );
+  // }
+  //
+  // getBookByAuthorWay2() {
+  //   this.bookService.getBookByAuthor(this.authorControl2.value).subscribe(
+  //     response => {
+  //       this.bookInformation = response['results'][0];
+  //       // console.log(`result looks like this ${response['results'][0]}`)
+  //       this.bookInformation = {
+  //         title: response['results'][0]['title'],
+  //         description: response['results'][0]['description'],
+  //         publisher: response['results'][0]['publisher']
+  //       }
+  //     }
+  //   );
+  // }
+
+
 
 }

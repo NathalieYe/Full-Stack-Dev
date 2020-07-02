@@ -2,7 +2,14 @@
 
 <br/>
 <form [formGroup]="bookFormGroup" (ngSubmit)="getBookByAuthorWay3()">
-  <label>Author: </label><input formControlName="authorControl">: {{author}} <br/>
+  <label>Author: </label><input id="authorForm" name="authorForm" class="form-control" required minlength="1" [(ngModel)]="author" #authorForm="ngModel" formControlName="authorControl">: {{author}} <br/>
   <button type="submit">Submit</button>
   <br/>
 </form>
+
+<div *ngIf="authorForm.invalid && (authorForm.dirty || authorForm.touched)"
+     class="alert alert-danger">
+  <div *ngIf="authorForm.errors.minlength">
+    Must be at least 1 character long.
+  </div>
+</div>

@@ -13,15 +13,15 @@ export class AppComponent {
   // title = "Haruki Murakami's Bestsellers on New York Times";
   // haruki: HARUKIBOOK[] = HARUKI;
   // selectedBook: HARUKIBOOK;
-  //
-  //
-  // bookInformation = {
-  //   title: "null",
-  //   description: "null",
-  //   publisher: "null"
-  // };
-  //
-  // author: string;
+
+
+  bookInformation = {
+    title: "null",
+    description: "null",
+    publisher: "null"
+  };
+
+  author: string;
   //
   // authorControl2: FormControl = new FormControl('haruki murakami', Validators.required);
   //
@@ -39,7 +39,8 @@ export class AppComponent {
   //   this.selectedBook = this.haruki.find(name => name.title === title);
   // }
   //
-  // constructor(private bookService: BookService, private form: FormBuilder) {}
+  // constructor(private bookService: BookService) {}
+  //  constructor(private bookService: BookService, private form: FormBuilder) {}
   //
   // getBook() {
   //   this.bookService.getBook().subscribe(
@@ -90,6 +91,7 @@ export class AppComponent {
   //     }
   //   );
   // }
+
 }
 
 

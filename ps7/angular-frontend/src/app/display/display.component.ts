@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 @Component({
   selector: 'app-display',
@@ -6,13 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./display.component.css']
 })
 export class DisplayComponent implements OnInit {
-  bookInformation = {
-    title: "null",
-    description: "null",
-    publisher: "null"
-  };
-
-  author: string;
+  @Input('book') book: any;
+  @Input('cache') cache: any;
+  @Input('author') author: any;
 
 
 
